@@ -18,8 +18,8 @@ public class AutorController {
     AutorService autorService;
 
     @PostMapping
-    public ResponseEntity<AutorModel> create(AutorModel autorModel){
-        AutorModel request = autorService.create(autorModel);
+    public ResponseEntity<AutorModel> createAutor(AutorModel autorModel){
+        AutorModel request = autorService.createAutor(autorModel);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(autorModel.getId()).toUri();
         return ResponseEntity.created(uri).body(request);
     }

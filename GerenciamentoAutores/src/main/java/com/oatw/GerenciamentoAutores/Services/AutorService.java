@@ -13,7 +13,7 @@ public class AutorService {
     @Autowired
     AutorRepository autorRepository;
 
-    public AutorModel create(AutorModel autorModel){
+    public AutorModel createAutor(AutorModel autorModel){
         return autorRepository.save(autorModel);
     }
 
