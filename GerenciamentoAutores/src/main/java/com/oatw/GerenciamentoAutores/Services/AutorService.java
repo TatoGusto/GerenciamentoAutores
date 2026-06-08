@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class AutorService {
@@ -21,11 +22,13 @@ public class AutorService {
         return autorRepository.findAll();
     }
 
-    public AutorModel getById(Long id){
+    public AutorModel getById(UUID id){
         return autorRepository.getById(id);
     }
 
-    public void deleteById(Long id){
+    public AutorModel getByNome(String nome){ return autorRepository.getByNome(nome);}
+
+    public void deleteById(UUID id){
         autorRepository.deleteById(id);
     }
 }

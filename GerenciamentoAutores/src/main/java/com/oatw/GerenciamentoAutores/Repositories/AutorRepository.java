@@ -3,5 +3,8 @@ package com.oatw.GerenciamentoAutores.Repositories;
 import com.oatw.GerenciamentoAutores.Models.AutorModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AutorRepository extends JpaRepository<AutorModel,Long> {
+import java.util.UUID;
+
+public interface AutorRepository extends JpaRepository<AutorModel, UUID> {
+    AutorModel getByNome(String nome);
 }

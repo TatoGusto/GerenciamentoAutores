@@ -3,15 +3,16 @@ package com.oatw.GerenciamentoAutores.Models;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "tb_autor")
 public class AutorModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "CodigoAutor")
-    private Long id;
+    private UUID id;
     private String nome;
     @Column(name = "País de origem")
     private String nacionalidade;
@@ -20,11 +21,11 @@ public class AutorModel {
     public AutorModel() {
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

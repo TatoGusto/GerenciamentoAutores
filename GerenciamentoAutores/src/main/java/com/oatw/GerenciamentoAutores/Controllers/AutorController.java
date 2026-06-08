@@ -9,6 +9,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(path = "/autor")
@@ -31,13 +32,19 @@ public class AutorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<AutorModel> getById(@PathVariable Long id){
+    public ResponseEntity<AutorModel> getById(@PathVariable UUID id){
         AutorModel request = autorService.getById(id);
         return ResponseEntity.ok().body(request);
     }
 
+    @GetMapping("/{nome}")
+    public ResponseEntity<AutorModel> getByNome(@PathVariable String nome){
+        AutorModel request = autorService.getByNome(nome);
+        return ResponseEntity.ok().body(request);
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteById(@PathVariable Long id){
+    public ResponseEntity<?> deleteById(@PathVariable UUID id){
         autorService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
